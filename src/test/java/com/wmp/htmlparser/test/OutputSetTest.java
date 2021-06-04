@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class OutputSetTest {
 
@@ -35,6 +36,23 @@ public class OutputSetTest {
 
         assertThat(outputSet.getQuotient()).isEmpty();
         assertThat(outputSet.getRemainder()).isEqualTo(SAMPLE_TEXT);
+    }
+
+    @DisplayName("targetString이 empty이면 몫과 나머지 모두 empty이다")
+    @Test
+    void allEmpty() {
+        final OutputSet outputSet = new OutputSet("", 1);
+
+        assertThat(outputSet.getQuotient()).isEmpty();
+        assertThat(outputSet.getRemainder()).isEmpty();
+    }
+
+    @DisplayName("unitCount가 0이면 ArithmeticException이 발생한다")
+    @Test
+    void devideZero() {
+        assertThatThrownBy(() -> {
+            new OutputSet(SAMPLE_TEXT, 0);
+        }).isInstanceOf(ArithmeticException.class);
     }
 
 }
