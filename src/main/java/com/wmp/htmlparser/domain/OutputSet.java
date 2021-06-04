@@ -1,4 +1,4 @@
-package com.wmp.domain;
+package com.wmp.htmlparser.domain;
 
 import lombok.Getter;
 
