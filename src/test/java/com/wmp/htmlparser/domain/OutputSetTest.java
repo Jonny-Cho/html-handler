@@ -1,4 +1,4 @@
-package com.wmp.htmlparser.test;
+package com.wmp.htmlparser.domain;
 
 import com.wmp.domain.OutputSet;
 import org.junit.jupiter.api.DisplayName;
