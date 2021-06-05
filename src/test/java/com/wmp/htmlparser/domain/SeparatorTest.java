@@ -15,13 +15,19 @@ class SeparatorTest {
         assertThat(separator.getSortedNumber()).isEqualTo("01234");
     }
 
-    // String을 입력받을 때 숫자와 영어 이외의 값이 포함된 경우 exception? 아니면 무시하기?
-//    @DisplayName("String을 입력받을 때 숫자와 영어 이외의 값이 포함된 경우 exception")
-//    @Test
-//    void error(){
-//        final Separator separator = new Separator("e4C3dB1<aDf2c!EA0@bF");
-//        assertThat(separator.getSortedEnglish()).isEqualTo("AaBbCcDdEeFf");
-//        assertThat(separator.getSortedNumber()).isEqualTo("01234");
-//    }
+    @DisplayName("String을 입력받을 때 숫자와 영어 이외의 값이 포함된 경우 지운다")
+    @Test
+    void removeSpecialChars(){
+        final Separator separator = new Separator("e4C3dB1<aDf2c!EA0@bF");
+        assertThat(separator.getSortedEnglish()).isEqualTo("AaBbCcDdEeFf");
+        assertThat(separator.getSortedNumber()).isEqualTo("01234");
+    }
+
+    @DisplayName("getResult는 정렬된 영어 + 정렬된 숫자를 합쳐서 리턴한다")
+    @Test
+    void getResult(){
+        final Separator separator = new Separator("e4C3dB1<aDf2c!EA0@bF");
+        assertThat(separator.getResult()).isEqualTo("AaBbCcDdEeFf01234");
+    }
 
 }
