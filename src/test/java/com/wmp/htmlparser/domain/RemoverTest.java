@@ -13,14 +13,14 @@ class RemoverTest {
 
     @DisplayName("RemoveHtml 전략을 사용하면 태그를 지운 결과를 리턴한다")
     @Test
-    void removeHtml(){
+    void removeHtml() {
         final String removedStr = new Remover(SAMPLE_HTML, new RemoveHtml()).getRemovedStr();
         assertThat(removedStr).isEqualTo("abc");
     }
 
     @DisplayName("RemoveNothing 전략을 사용하면 아무것도 지우지 않는다")
     @Test
-    void removeNothing(){
+    void removeNothing() {
         final String removedStr = new Remover(SAMPLE_HTML, new RemoveNothing()).getRemovedStr();
         assertThat(removedStr).isEqualTo(SAMPLE_HTML);
     }
