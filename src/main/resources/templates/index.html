@@ -54,6 +54,7 @@
 
     form.addEventListener("submit", (e) => {
         e.preventDefault()
+        formUrlError.textContent = ""
         const url = `api/parse`;
         const options = {
             method: 'POST',
