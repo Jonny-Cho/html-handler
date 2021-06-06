@@ -14,11 +14,11 @@ import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController
-public class ParseController {
+public class ApiParseController {
 
     private final ParseService parseService;
 
-    @PostMapping("/parse")
+    @PostMapping("api/parse")
     public ResponseEntity<ParseResponseDto> parseWithoutHtml(@RequestBody @Valid ParseRequestDto parseRequestDto) throws IllegalAccessException {
         return new ResponseEntity<>(parseService.parse(parseRequestDto), HttpStatus.OK);
     }
