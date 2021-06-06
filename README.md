@@ -2,6 +2,12 @@
 
 ## 빌드 및 실행방법
 
+```shell
+git clone https://github.com/Jonny-Cho/html-handler.git
+
+./gradlew bootRun
+```
+
 ## 제약 조건
 
 1. 모든 문자 입력 가능
