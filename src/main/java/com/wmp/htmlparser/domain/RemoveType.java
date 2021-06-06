@@ -11,8 +11,8 @@ import java.util.Arrays;
 @Getter
 @RequiredArgsConstructor
 public enum RemoveType {
-    REMOVE_HTML(1, new RemoveHtml()),
-    ALL_TEXT(2, new RemoveNothing());
+    REMOVE_HTML(Constants.TYPE_MIN_NUMBER, new RemoveHtml()),
+    ALL_TEXT(Constants.TYPE_MAX_NUMBER, new RemoveNothing());
 
     private final int typeNumber;
     private final RemoveStrategy removeStrategy;
@@ -22,5 +22,10 @@ public enum RemoveType {
                 .filter(type -> type.typeNumber == typeNumber)
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("해당되는 RemoveType이 없습니다"));
+    }
+
+    public static class Constants {
+        public static final int TYPE_MAX_NUMBER = 2;
+        public static final int TYPE_MIN_NUMBER = 1;
     }
 }
