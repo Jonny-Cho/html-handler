@@ -1,19 +1,13 @@
 package com.wmp.htmlparser.domain;
 
-import lombok.Getter;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Getter
-public class Separator {
+public class Arranger {
 
     private static final Pattern PATTERN = Pattern.compile("([A-Za-z]*)([0-9]*)");
 
-    private final String sortedEnglish;
-    private final String sortedNumber;
-
-    public Separator(final String str) {
+    public static String rearrange(final String str) {
         final Matcher matcher = PATTERN.matcher(str);
 
         StringBuilder sbStr = new StringBuilder();
@@ -22,12 +16,7 @@ public class Separator {
             sbStr.append(matcher.group(1));
             sbNum.append(matcher.group(2));
         }
-
-        sortedEnglish = Sorter.stringSort(sbStr.toString());
-        sortedNumber = Sorter.numberSort(sbNum.toString());
+        return Sorter.stringSort(sbStr.toString()) + Sorter.numberSort(sbNum.toString());
     }
 
-    public String getResult() {
-        return sortedEnglish + sortedNumber;
-    }
 }
