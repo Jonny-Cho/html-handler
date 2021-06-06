@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 @RestController
 public class ParseController {
@@ -17,7 +19,7 @@ public class ParseController {
     private final ParseService parseService;
 
     @PostMapping("/parse")
-    public ResponseEntity<ParseResponseDto> parseWithoutHtml(@RequestBody ParseRequestDto parseRequestDto) throws IllegalAccessException {
+    public ResponseEntity<ParseResponseDto> parseWithoutHtml(@RequestBody @Valid ParseRequestDto parseRequestDto) throws IllegalAccessException {
         return new ResponseEntity<>(parseService.parse(parseRequestDto), HttpStatus.OK);
     }
 
