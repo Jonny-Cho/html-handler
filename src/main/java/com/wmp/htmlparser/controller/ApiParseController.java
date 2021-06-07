@@ -19,7 +19,7 @@ public class ApiParseController {
     private final ParseService parseService;
 
     @PostMapping("api/parse")
-    public ResponseEntity<ParseResponseDto> parseWithoutHtml(@RequestBody @Valid ParseRequestDto parseRequestDto) throws IllegalAccessException {
+    public ResponseEntity<ParseResponseDto> parseWithoutHtml(@RequestBody @Valid ParseRequestDto parseRequestDto) {
         return new ResponseEntity<>(parseService.parse(parseRequestDto), HttpStatus.OK);
     }
 

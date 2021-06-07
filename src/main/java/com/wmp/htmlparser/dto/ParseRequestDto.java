@@ -6,8 +6,8 @@ import org.hibernate.validator.constraints.Range;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
-import static com.wmp.htmlparser.domain.RemoveType.Constants.TYPE_MAX_NUMBER;
-import static com.wmp.htmlparser.domain.RemoveType.Constants.TYPE_MIN_NUMBER;
+import static com.wmp.htmlparser.domain.removestrategy.RemoveHtml.REMOVE_HTML_TYPE_NUMBER;
+import static com.wmp.htmlparser.domain.removestrategy.RemoveNothing.REMOVE_NOTHING_TYPE_NUMBER;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,7 +21,7 @@ public class ParseRequestDto {
     )
     private String url;
 
-    @Range(min = TYPE_MIN_NUMBER, max = TYPE_MAX_NUMBER, message = "유효하지 않은 removeTypeNumber입니다.")
+    @Range(min = REMOVE_HTML_TYPE_NUMBER, max = REMOVE_NOTHING_TYPE_NUMBER, message = "유효하지 않은 removeTypeNumber입니다.")
     private int removeTypeNumber;
 
     @Min(value = 1, message = "1이상의 수를 입력해주세요")
