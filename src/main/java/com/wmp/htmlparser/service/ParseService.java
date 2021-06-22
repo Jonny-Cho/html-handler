@@ -3,6 +3,8 @@ package com.wmp.htmlparser.service;
 import com.wmp.htmlparser.domain.*;
 import com.wmp.htmlparser.dto.ParseRequestDto;
 import com.wmp.htmlparser.dto.ParseResponseDto;
+import com.wmp.htmlparser.util.Arranger;
+import com.wmp.htmlparser.util.Interleave;
 import org.jsoup.Jsoup;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,7 @@ import java.io.IOException;
 @Service
 public class ParseService {
 
-    public ParseResponseDto parse(final ParseRequestDto parseRequestDto) throws IllegalAccessException {
+    public ParseResponseDto parse(final ParseRequestDto parseRequestDto) {
         final String htmlText = getRequest(parseRequestDto.getUrl());
         final RemoveType removeType = RemoveType.find(parseRequestDto.getRemoveTypeNumber());
         final Remover remover = new Remover(htmlText, removeType.getRemoveStrategy());
@@ -21,11 +23,11 @@ public class ParseService {
         return new ParseResponseDto(outputSet);
     }
 
-    private String getRequest(final String url) throws IllegalAccessException {
+    private String getRequest(final String url) {
         try {
             return Jsoup.connect(url).get().data();
         } catch (final IOException e) {
-            throw new IllegalAccessException("접근할 수 없는 url입니다");
+            throw new IllegalArgumentException("접근할 수 없는 url입니다");
         }
     }
 
