@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 @Component
-public class Interleave {
+public class Interleaver {
 
     public static final String DELIMITER = "";
 

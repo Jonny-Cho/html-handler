@@ -1,8 +1,8 @@
 package com.wmp.htmlparser.domain;
 
-import com.wmp.htmlparser.domain.removestrategy.RemoveHtml;
-import com.wmp.htmlparser.domain.removestrategy.RemoveNothing;
-import com.wmp.htmlparser.domain.removestrategy.RemoveStrategy;
+import com.wmp.htmlparser.util.removestrategy.RemoveHtml;
+import com.wmp.htmlparser.util.removestrategy.RemoveNothing;
+import com.wmp.htmlparser.util.removestrategy.RemoveStrategy;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -11,6 +11,7 @@ import java.util.Arrays;
 @Getter
 @RequiredArgsConstructor
 public enum RemoveType {
+
     REMOVE_HTML(Constants.TYPE_MIN_NUMBER, new RemoveHtml()),
     ALL_TEXT(Constants.TYPE_MAX_NUMBER, new RemoveNothing());
 

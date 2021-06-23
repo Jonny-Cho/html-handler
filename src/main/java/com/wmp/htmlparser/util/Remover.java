@@ -1,6 +1,6 @@
 package com.wmp.htmlparser.domain;
 
-import com.wmp.htmlparser.domain.removestrategy.RemoveStrategy;
+import com.wmp.htmlparser.util.removestrategy.RemoveStrategy;
 import lombok.Getter;
 
 @Getter
