@@ -1,17 +1,17 @@
-package com.wmp.htmlparser.domain;
+package com.wmp.htmlparser.util;
 
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Iterator;
 
-@Getter
+@Component
 public class Interleave {
 
     public static final String DELIMITER = "";
-    private final String result;
 
-    public Interleave(final String str1, final String str2) {
+    public String interleave(final String str1, final String str2) {
         StringBuilder sb = new StringBuilder();
 
         Iterator<String> it1 = Arrays.stream(str1.split(DELIMITER)).iterator();
@@ -26,7 +26,7 @@ public class Interleave {
             }
         }
 
-        result = sb.toString();
+        return sb.toString();
     }
 
 }

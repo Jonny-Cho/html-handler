@@ -5,21 +5,25 @@ import com.wmp.htmlparser.dto.ParseRequestDto;
 import com.wmp.htmlparser.dto.ParseResponseDto;
 import com.wmp.htmlparser.util.Arranger;
 import com.wmp.htmlparser.util.Interleave;
+import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+@RequiredArgsConstructor
 @Service
 public class ParseService {
+
+    private final Arranger arranger;
+    private final Interleave interleave;
 
     public ParseResponseDto parse(final ParseRequestDto parseRequestDto) {
         final String htmlText = getRequest(parseRequestDto.getUrl());
         final RemoveType removeType = RemoveType.find(parseRequestDto.getRemoveTypeNumber());
         final Remover remover = new Remover(htmlText, removeType.getRemoveStrategy());
-        final Arranger arranger = new Arranger(remover.getRemovedStr());
-        final Interleave interleave = new Interleave(arranger.getSortedEnglish(), arranger.getSortedNumber());
-        final OutputSet outputSet = new OutputSet(interleave.getResult(), parseRequestDto.getOutputUnitCount());
+        final Arranger arranger = this.arranger.rearrange(remover.getRemovedStr());
+        final OutputSet outputSet = new OutputSet(interleave.interleave(arranger.getSortedEnglish(), arranger.getSortedNumber()), parseRequestDto.getOutputUnitCount());
         return new ParseResponseDto(outputSet);
     }
 
