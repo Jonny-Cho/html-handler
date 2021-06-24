@@ -1,4 +1,4 @@
-package com.wmp.htmlparser.domain;
+package com.wmp.htmlparser.util;
 
 import com.wmp.htmlparser.util.removestrategy.RemoveStrategy;
 import lombok.Getter;

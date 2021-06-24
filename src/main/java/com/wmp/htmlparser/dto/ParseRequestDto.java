@@ -6,8 +6,8 @@ import org.hibernate.validator.constraints.Range;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
-import static com.wmp.htmlparser.domain.RemoveType.Constants.TYPE_MAX_NUMBER;
-import static com.wmp.htmlparser.domain.RemoveType.Constants.TYPE_MIN_NUMBER;
+import static com.wmp.htmlparser.util.RemoveType.Constants.TYPE_MAX_NUMBER;
+import static com.wmp.htmlparser.util.RemoveType.Constants.TYPE_MIN_NUMBER;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

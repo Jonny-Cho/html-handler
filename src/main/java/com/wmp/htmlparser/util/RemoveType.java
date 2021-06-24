@@ -1,4 +1,4 @@
-package com.wmp.htmlparser.domain;
+package com.wmp.htmlparser.util;
 
 import com.wmp.htmlparser.util.removestrategy.RemoveHtml;
 import com.wmp.htmlparser.util.removestrategy.RemoveNothing;

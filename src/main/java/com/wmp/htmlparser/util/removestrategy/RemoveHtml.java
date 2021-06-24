@@ -1,4 +1,4 @@
-package com.wmp.htmlparser.domain.removestrategy;
+package com.wmp.htmlparser.util.removestrategy;
 
 public class RemoveHtml implements RemoveStrategy {
 
