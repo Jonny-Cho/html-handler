@@ -4,32 +4,23 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-@Getter
 @RequiredArgsConstructor
 @Component
 public class Arranger {
 
+    private final Separator separator;
     private final Sorter sorter;
-    private final Pattern PATTERN = Pattern.compile("([A-Za-z]*)([0-9]*)");
 
+    @Getter
     private String sortedEnglish;
+
+    @Getter
     private String sortedNumber;
 
     public Arranger rearrange(final String str) {
-        final Matcher matcher = PATTERN.matcher(str);
-
-        StringBuilder sbStr = new StringBuilder();
-        StringBuilder sbNum = new StringBuilder();
-        while (matcher.find()) {
-            sbStr.append(matcher.group(1));
-            sbNum.append(matcher.group(2));
-        }
-
-        this.sortedEnglish = sorter.stringSort(sbStr.toString());
-        this.sortedNumber = sorter.numberSort(sbNum.toString());
+        final Separator separate = separator.separate(str);
+        this.sortedEnglish = sorter.stringSort(separate.getEnglish());
+        this.sortedNumber = sorter.numberSort(separate.getNumber());
         return this;
     }
 

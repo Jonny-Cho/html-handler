@@ -28,4 +28,8 @@ public class Interleaver {
         return sb.toString();
     }
 
+    public String interleave(final Arranger arranger) {
+        return interleave(arranger.getSortedEnglish(), arranger.getSortedNumber());
+    }
+
 }

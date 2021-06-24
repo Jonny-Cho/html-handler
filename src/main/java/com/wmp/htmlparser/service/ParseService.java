@@ -20,7 +20,7 @@ public class ParseService {
         final RemoveType removeType = RemoveType.find(parseRequestDto.getRemoveTypeNumber());
         final Remover remover = new Remover(htmlText, removeType.getRemoveStrategy());
         final Arranger arranger = this.arranger.rearrange(remover.getRemovedStr());
-        final OutputSet outputSet = new OutputSet(interleaver.interleave(arranger.getSortedEnglish(), arranger.getSortedNumber()), parseRequestDto.getOutputUnitCount());
+        final OutputSet outputSet = new OutputSet(interleaver.interleave(arranger), parseRequestDto.getOutputUnitCount());
         return new ParseResponseDto(outputSet);
     }
 
