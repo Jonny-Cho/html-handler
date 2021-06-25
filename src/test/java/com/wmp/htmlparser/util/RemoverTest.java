@@ -1,6 +1,5 @@
 package com.wmp.htmlparser.util;
 
-import com.wmp.htmlparser.util.Remover;
 import com.wmp.htmlparser.util.removestrategy.RemoveHtml;
 import com.wmp.htmlparser.util.removestrategy.RemoveNothing;
 import org.junit.jupiter.api.DisplayName;

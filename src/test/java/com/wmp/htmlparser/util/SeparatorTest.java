@@ -2,16 +2,12 @@ package com.wmp.htmlparser.util;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
 class SeparatorTest {
 
-    @Autowired
-    private Separator separator;
+    private final Separator separator = new Separator();
 
     @DisplayName("String을 입력받으면 영어부분과 숫자부분을 얻을 수 있다")
     @Test
