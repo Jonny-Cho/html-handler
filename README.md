@@ -8,6 +8,9 @@ git clone https://github.com/Jonny-Cho/html-handler.git
 ./gradlew bootRun
 ```
 
+## Swagger
+`localhost:8080/swagger-ui/index.html`
+
 ## 제약 조건
 
 1. 모든 문자 입력 가능
