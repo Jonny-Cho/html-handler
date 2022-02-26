@@ -12,7 +12,6 @@ import static com.wmp.htmlparser.util.RemoveType.Constants.TYPE_MIN_NUMBER;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@EqualsAndHashCode
 public class ParseRequestDto {
 
     @Pattern(
