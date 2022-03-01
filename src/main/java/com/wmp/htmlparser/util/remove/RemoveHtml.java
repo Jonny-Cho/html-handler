@@ -1,4 +1,4 @@
-package com.wmp.htmlparser.util.removestrategy;
+package com.wmp.htmlparser.util.remove;
 
 public class RemoveHtml implements RemoveStrategy {
 
@@ -9,4 +9,5 @@ public class RemoveHtml implements RemoveStrategy {
     public String remove(final String str) {
         return str.replaceAll(REMOVE_TAG_PATTERN, EMPTY);
     }
+
 }

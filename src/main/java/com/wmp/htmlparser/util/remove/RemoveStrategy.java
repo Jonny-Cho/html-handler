@@ -1,4 +1,4 @@
-package com.wmp.htmlparser.util.removestrategy;
+package com.wmp.htmlparser.util.remove;
 
 public interface RemoveStrategy {
 
