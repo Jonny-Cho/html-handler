@@ -20,15 +20,15 @@
       <div class="form-text url-error" style="color:red"></div>
     </div>
     <div class="mb-3">
-      <label for="removeTypeNumber" class="form-label">TYPE</label>
-      <select id="removeTypeNumber" class="form-select">
-        <option value="1">HTML 태그 제외</option>
-        <option value="2">TEXT 전체</option>
+      <label for="removeType" class="form-label">노출유형</label>
+      <select id="removeType" class="form-select">
+        <option value="REMOVE_HTML">HTML 태그 제외</option>
+        <option value="REMOVE_NOTHING">TEXT 전체</option>
       </select>
     </div>
     <div class="mb-3">
       <label for="outputUnitCount" class="form-label">출력 묶음 단위</label>
-      <input type="number" min="1" value="50" , class="form-control" id="outputUnitCount">
+      <input type="number" min="1" value="50" class="form-control" id="outputUnitCount">
     </div>
     <button type="submit" class="btn btn-primary">출력</button>
   </form>
@@ -47,7 +47,7 @@
     const form = document.querySelector("form");
     const formUrl = document.querySelector("#formUrl");
     const formUrlError = document.querySelector(".url-error");
-    const removeTypeNumber = document.querySelector("#removeTypeNumber");
+    const removeType = document.querySelector("#removeType");
     const outputUnitCount = document.querySelector("#outputUnitCount");
     const quotient = document.querySelector("#quotient");
     const remainder = document.querySelector("#remainder");
@@ -65,7 +65,7 @@
             },
             body: JSON.stringify({
                 url: formUrl.value,
-                removeTypeNumber: Number(removeTypeNumber.options[removeTypeNumber.selectedIndex].value),
+                removeType: removeType.options[removeType.selectedIndex].value,
                 outputUnitCount: Number(outputUnitCount.value)
             })
         };

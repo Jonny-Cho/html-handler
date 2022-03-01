@@ -4,6 +4,8 @@ import com.wmp.htmlparser.util.OutputSet;
 import com.wmp.htmlparser.dto.ParseRequestDto;
 import com.wmp.htmlparser.dto.ParseResponseDto;
 import com.wmp.htmlparser.util.*;
+import com.wmp.htmlparser.util.remove.RemoveStrategy;
+import com.wmp.htmlparser.util.remove.RemoveType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +19,10 @@ public class ParseService {
 
     public ParseResponseDto parse(final ParseRequestDto parseRequestDto) {
         final String htmlText = urlConnector.getHtmlText(parseRequestDto.getUrl());
-        final RemoveType removeType = RemoveType.find(parseRequestDto.getRemoveTypeNumber());
-        final Remover remover = new Remover(htmlText, removeType.getRemoveStrategy());
-        final Arranger arranger = this.arranger.rearrange(remover.getRemovedStr());
+        final RemoveType removeType = parseRequestDto.getRemoveType();
+        final RemoveStrategy removeStrategy = removeType.getRemoveStrategy();
+        final String removedStr = removeStrategy.remove(htmlText);
+        final Arranger arranger = this.arranger.rearrange(removedStr);
         final OutputSet outputSet = new OutputSet(interleaver.interleave(arranger), parseRequestDto.getOutputUnitCount());
         return new ParseResponseDto(outputSet);
     }
