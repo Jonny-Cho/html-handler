@@ -1,6 +1,6 @@
 package com.wmp.htmlparser.service;
 
-import com.wmp.htmlparser.domain.OutputSet;
+import com.wmp.htmlparser.util.OutputSet;
 import com.wmp.htmlparser.dto.ParseRequestDto;
 import com.wmp.htmlparser.dto.ParseResponseDto;
 import com.wmp.htmlparser.util.*;
