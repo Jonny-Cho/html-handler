@@ -1,6 +1,6 @@
 package com.wmp.htmlparser.dto;
 
-import com.wmp.htmlparser.domain.OutputSet;
+import com.wmp.htmlparser.util.OutputSet;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
