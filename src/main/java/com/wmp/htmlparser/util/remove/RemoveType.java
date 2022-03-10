@@ -7,7 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum RemoveType {
 
-    REMOVE_HTML(new RemoveHtml()), REMOVE_NOTHING(new RemoveNothing());
+    REMOVE_HTML(new RemoveHtml()),
+    REMOVE_NOTHING(new RemoveNothing());
 
     private final RemoveStrategy removeStrategy;
 
