@@ -19,6 +19,13 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    protected ResponseEntity<ErrorResponseDto> IllegalArgumentException(final IllegalArgumentException e) {
+        log.error("IllegalArgumentException", e);
+        final ErrorResponseDto response = ErrorResponseDto.of(ErrorCode.INVALID_INPUT_VALUE, e.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<ErrorResponseDto> MethodArgumentNotValidException(final MethodArgumentNotValidException e) {
         log.error("MethodArgumentNotValidException", e);
